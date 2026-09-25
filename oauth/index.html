@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Returning to Health App</title>
+<style>
+  :root { --bg:#F3F4F8; --text:#0E1116; --muted:#5E6576; --accent:#3D6DF2; }
+  @media (prefers-color-scheme: dark) { :root { --bg:#06070A; --text:#F3F4F7; --muted:#8D94A5; --accent:#7FA6FF; } }
+  body { margin:0; min-height:100vh; display:flex; align-items:center; justify-content:center; background:var(--bg); color:var(--text);
+         font:16px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; text-align:center; padding:16px; }
+  a { color:var(--accent); font-weight:600; }
+  p { color:var(--muted); }
+</style>
+</head>
+<body>
+<main>
+  <h1>Returning to Health App…</h1>
+  <p>If nothing happens, <a id="open" href="healthapp://wearable-callback">tap here to open the app</a>.</p>
+</main>
+<script>
+  // Wearable sign-ins (Oura, Fitbit, Polar) land here, then hand the result to the app.
+  var target = 'healthapp://wearable-callback' + window.location.search;
+  document.getElementById('open').href = target;
+  window.location.replace(target);
+</script>
+</body>
+</html>
